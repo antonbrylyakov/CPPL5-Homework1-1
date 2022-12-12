@@ -15,8 +15,8 @@ int main()
 
     printVector(vec);
 
-    int elemNum = 0;
-    std::transform(vec.begin(), vec.end(), vec.begin(), [&elemNum](int x){ return (elemNum++ % 2) ? x * 3 : x; });
+    int elemNum;
+    std::transform(vec.begin(), vec.end(), vec.begin(), [elemNum = 0](int x)mutable{ return (elemNum++ % 2) ? x * 3 : x; });
 
     printVector(vec);
 
